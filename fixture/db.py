@@ -22,14 +22,23 @@ class DbFixture:
             cursor.execute("select id, name, status, view_state, description, inherit_global, enabled from mantis_project_table")
             for row in cursor:
                 (id, name, status, view_state, description, inherit_global, enabled) = row
-                project_list.append(Project(id=str(id), name=name, status=Project.Status.convert_int_to_status(status)
-                                            , view_state=Project.ViewState.convert_int_to_view_state(view_state)
+                status_str = Project.statuses[int(status)]
+                view_state_str = Project.view_states[int(view_state)]
+                project_list.append(Project(id=str(id), name=name, status=status_str
+                                            , view_state=view_state_str
                                             , description=description, inherit_global=bool(inherit_global)
                                             , enabled=bool(enabled)))
 
         finally:
             cursor.close()
         return project_list
+
+    def delete_all_projects(self):
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute("delete from mantis_project_table")
+        finally:
+            cursor.close()
 
     def destroy(self):
         self.connection.close()

@@ -4,7 +4,7 @@ from sys import maxsize
 
 
 class Project:
-    def __init__(self, id=None, name=None, status=None, view_state=None, description=None, inherit_global=None, enabled=None):
+    def __init__(self, id=None, name=None, status=None, view_state=None, description=None, inherit_global=None, enabled=True):
         self.id = id
         self.name = name
         self.status = status
@@ -13,33 +13,35 @@ class Project:
         self.description = description
         self.enabled = enabled
 
-    class ViewState(enum.IntEnum):
-        public = 10
-        private = 50
+    # class ViewState(Enum):
+    #     public = 10
+    #     private = 50
+    #
+    # class Status(Enum):
+    #     development = 10
+    #     release = 30
+    #     stable = 50
+    #     obsolete = 70
 
-        def convert_int_to_view_state(self, int_value):
-            try:
-                status_from_int = self(int_value)  # Project.Status(int_value)
-                return status_from_int.name
-            except:
-                return None
+    view_states = {10: "public", 50: "private"}
 
-    class Status(enum.IntEnum):
-        development = 10
-        release = 30
-        stable = 50
-        obsolete = 70
+    statuses = {10: "development", 30: "release", 50: "stable", 70: "obsolete"}
 
-        def convert_int_to_status(self, int_value):
-            try:
-                status_from_int = self(int_value)
-                return status_from_int.name
-            except:
-                return None
-
-    view_states = ["public", "private"]
-
-    statuses = ["development", "release", "stable", "obsolete"]
+    # @staticmethod
+    # def convert_int_to_status(int_value):
+    #     try:
+    #         status_from_int = self.Status(int_value)
+    #         return status_from_int.name
+    #     except:
+    #         return None
+    #
+    # @staticmethod
+    # def convert_int_to_view_state(self, int_value):
+    #     try:
+    #         status_from_int = self.ViewState(int_value)  # Project.Status(int_value)
+    #         return status_from_int.name
+    #     except:
+    #         return None
 
     def __repr__(self):
         return "%s:::%s_%s_%s_%s_%s_%s" % (self.id, self.name, self.status, self.view_state, self.description,

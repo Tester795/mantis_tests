@@ -33,13 +33,6 @@ def random_value(enum):
 
 testdata = \
     [Project(
-        name=""
-        , status=random.choice([e.name for e in Project.ViewState])
-        , view_state=random.choice([e.name for e in Project.Status])
-        , description=""
-        , inherit_global=random.choice([True, False]))] \
-    + \
-    [Project(
         name=random_prefix("name", 10)
         , status=random.choice([e.name for e in Project.Status])
         , view_state=random.choice([e.name for e in Project.ViewState])

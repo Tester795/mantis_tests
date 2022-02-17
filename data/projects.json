@@ -1,0 +1,52 @@
+[
+  {
+    "py/object": "model.project.Project",
+    "id": null,
+    "name": "namet -KW1]0",
+    "status": "development",
+    "inherit_global": false,
+    "view_state": "private",
+    "description": "descriptionl{s 'TafK~=`5V aP C2 EJ;rvV-dIHjzK;:7u*0JMNa9reSra4[7,gL8}",
+    "enabled": null
+  },
+  {
+    "py/object": "model.project.Project",
+    "id": null,
+    "name": "name$CM.",
+    "status": "obsolete",
+    "inherit_global": true,
+    "view_state": "public",
+    "description": "descriptionY3AEEEFK1}\"'^4\"gd^Qe X,1\"=y+jc(gv>~s @)Z0$ 3h 0ZiBN\\[8 |p{VsF?/=d3\"|",
+    "enabled": null
+  },
+  {
+    "py/object": "model.project.Project",
+    "id": null,
+    "name": "name+Sqm",
+    "status": "stable",
+    "inherit_global": true,
+    "view_state": "public",
+    "description": "description(2!0I k>a7HRgV[['`B|4+",
+    "enabled": null
+  },
+  {
+    "py/object": "model.project.Project",
+    "id": null,
+    "name": "name+aA  :_t",
+    "status": "obsolete",
+    "inherit_global": false,
+    "view_state": "private",
+    "description": "description<{ q!&<",
+    "enabled": null
+  },
+  {
+    "py/object": "model.project.Project",
+    "id": null,
+    "name": "nameG*o>qM",
+    "status": "stable",
+    "inherit_global": false,
+    "view_state": "private",
+    "description": "description#( CGJ\\1|zpH`L$nJS`%bp 3P3G#(ii<; A^ \\b3<5<#2.)9Og> ;F$>n Aa1:lI@!.`5H9wy !-O2+=|1+d $asIi",
+    "enabled": null
+  }
+]

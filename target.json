@@ -2,6 +2,12 @@
   "web": {
     "baseURL": "http://localhost/mantisbt-1.2.20"
   },
+  "db": {
+    "host": "localhost",
+    "name": "bugtracker",
+    "user": "root",
+    "password": ""
+  },
   "webadmin": {
     "username": "administrator",
     "password": "root"
