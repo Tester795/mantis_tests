@@ -22,16 +22,12 @@ class SoapHelper:
         project_list = []
         items = client.service.mc_projects_get_user_accessible(username, password)
         for item in items:
-            (id, name, status, enabled, view_state, description, inherit_global) = item
-            status_str = status.name
-            view_state_str = view_state.name
             project_list.append(
                 Project(
-                    id=str(id)
-                    , name=name
-                    , status=status_str
-                    , view_state=view_state_str
-                    , description=description
-                    , inherit_global=bool(inherit_global)
-                    , enabled=bool(enabled)))
+                    id=str(item.id)
+                    , name=item.name
+                    , status=item.status.name
+                    , view_state=item.view_state.name
+                    , description=item.description
+                    , enabled=item.enabled))
         return project_list
