@@ -1,0 +1,7 @@
+pytest
+selenium
+jsonpickle
+pony
+pymysql
+suds
+ftputil

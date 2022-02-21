@@ -8,19 +8,25 @@ class SoapHelper:
 
     def __init__(self, app):
         self.app = app
+        self.api_url = self.app.base_url + "/api/soap/mantisconnect.php?wsdl"
 
-    def can_login(self, username, password):
-        client = Client("http://localhost/mantisbt-1.2.20/api/soap/mantisconnect.php?wsdl")
+    def urljoin(*args):
+        trailing_slash = '/' if args[-1].endswith('/') else ''
+        return "/".join(map(lambda x: str(x).strip('/'), args)) + trailing_slash
+
+    def can_login(self):
+        client = Client(self.api_url)
         try:
-            client.service.mc_login(username, password)
+            client.service.mc_login(self.app.config['webadmin']['username'], self.app.config['webadmin']['password'])
             return True
         except WebFault:
             return False
 
-    def get_project_list(self, username, password):
-        client = Client("http://localhost/mantisbt-1.2.20/api/soap/mantisconnect.php?wsdl")
+    def get_project_list(self):
+        client = Client(self.api_url)
         project_list = []
-        items = client.service.mc_projects_get_user_accessible(username, password)
+        items = client.service.mc_projects_get_user_accessible(self.app.config['webadmin']['username'],
+                                                               self.app.config['webadmin']['password'])
         for item in items:
             project_list.append(
                 Project(
